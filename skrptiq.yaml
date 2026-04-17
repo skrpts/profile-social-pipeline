@@ -1,0 +1,43 @@
+# --- Identity ---
+id: "5697d19d-8222-4729-95ee-645c4a8d75e8"
+name: "profile-social-pipeline"
+display_name: "Profile-Aware Social Media Pipeline"
+description: "Generate personalised multi-platform social content using your voice and audience profiles"
+version: "1.0.0"
+engine: ">=1.0.0"
+
+# --- Attribution ---
+author:
+  name: "skrptiq"
+  url: "https://hub.skrptiq.ai"
+
+licence: "MIT"
+repository: "https://github.com/skrpts/profile-social-pipeline"
+
+# --- Discovery (Hub) ---
+category: "content-creator"
+tags:
+  - "social-media"
+  - "voice-profile"
+  - "multi-platform"
+  - "content-creation"
+  - "personalisation"
+
+# --- Security & Access ---
+requires:
+  services:
+    - "llm-service"
+  permissions: []
+  data_handling:
+    - "pii"
+
+# --- Contents ---
+contents:
+  skills: 5
+  prompts: 5
+  workflows: 1
+  services: 1
+  sources: 0
+  documents: 0
+  assets: 0
+  total: 12

@@ -36,15 +36,20 @@ composite_steps:
   - "consistency-check"
 execution:
   - skill: "core-message-drafting"
+    prompt: "draft-core-message"
     step_type: "generation"
   - skill: "platform-adaptation"
+    prompt: "adapt-for-platform"
     step_type: "generation"
   - skill: "voice-verification"
+    prompt: "verify-voice"
     step_type: "validation"
   - skill: "language-polish"
+    prompt: "polish-language"
     step_type: "content"
   - parallel:
     - skill: "consistency-check"
+      prompt: "check-consistency"
       step_type: "review"
 ---
 

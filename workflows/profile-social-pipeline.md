@@ -39,32 +39,32 @@ execution:
     prompt: "draft-core-message"
     step_type: "generation"
     context:
-      voice_profile: ""
-      audience_profile: ""
+      voice_profile: "Neutral professional tone"
+      audience_profile: "General professional audience"
   - skill: "platform-adaptation"
     prompt: "adapt-for-platform"
     step_type: "generation"
     context:
-      voice_profile: ""
-      audience_profile: ""
+      voice_profile: "Neutral professional tone"
+      audience_profile: "General professional audience"
   - skill: "voice-verification"
     prompt: "verify-voice"
     step_type: "validation"
     context:
-      voice_profile: ""
+      voice_profile: "Neutral professional tone"
   - skill: "language-polish"
     prompt: "polish-language"
     step_type: "content"
     context:
-      voice_profile: ""
-      grammar_strictness: ""
+      voice_profile: "Neutral professional tone"
+      grammar_strictness: "Professional"
   - parallel:
     - skill: "consistency-check"
       prompt: "check-consistency"
       step_type: "review"
       context:
-        voice_profile: ""
-        consistency_strictness: ""
+        voice_profile: "Neutral professional tone"
+        consistency_strictness: "Standard"
 ---
 
 ## Overview

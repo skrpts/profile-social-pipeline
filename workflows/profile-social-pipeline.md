@@ -24,6 +24,7 @@ metadata:
 loops:
   - id: "platform-loop"
     mode: "for_each"
+    inputExpression: "{{input.platforms}}"
     steps:
       - "platform-adaptation"
     maxIterations: 10

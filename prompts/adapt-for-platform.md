@@ -26,9 +26,13 @@ If a voice profile is provided, maintain the creator's voice throughout the adap
 
 If an audience profile is provided, calibrate tone and depth for this audience on this specific platform.
 
-## Core Message and Platform
+## Target Platform
 
-{{steps.previous.output}}
+{{loop.item}}
+
+## Core Message
+
+{{steps.Core Message Drafting.output}}
 
 ## Adaptation Rules by Platform
 

@@ -1,9 +1,9 @@
 # --- Identity ---
-id: "5697d19d-8222-4729-95ee-645c4a8d75e8"
+id: "912dbfcd-f168-4640-96c2-e6e06b097c56"
 name: "profile-social-pipeline"
 display_name: "Profile-Aware Social Media Pipeline"
 description: "Generate personalised multi-platform social content using your voice and audience profiles"
-version: "1.0.14"
+version: "1.0.15"
 engine: ">=0.1.0"
 
 # --- Attribution ---

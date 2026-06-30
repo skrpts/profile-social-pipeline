@@ -1,5 +1,8 @@
 # Release Notes
 
+## v1.0.16
+GH#711 — fix the `for_each` platform loop. The `platform-loop` iterates `{{input.platforms}}`, but the input was documented and exampled as a comma-separated string (`LinkedIn, Twitter, …`), which resolves to prose the loop cannot iterate (the engine now fails this loud — GH#557). The input contract is now a JSON array (or one platform per line), mirroring the proven `batch-competitor-analysis` for_each pattern, so the expression resolves to an iterable array. Content-only: Inputs table, Stage 2 wording (notes `{{loop.item}}`), and Example Input updated; no contract or engine change.
+
 ## v1.0.15
 Fix-forward after Row 3b v1.0.14 publish failure. The v1.0.14 per-skrpt CI's "Register version with Hub API" step failed because the consumer's source `manifest.id` (5697d19d…) did not match the D1 catalogue row's id (912dbfcd…) — a legacy drift from before Action 6 (`0bcc5ae0`) made publish-skrpt.mjs Step 2 INSERT use `manifest.id` for the D1 id column. v1.0.15 reconciles the source `manifest.id` to the catalogue authoritative value (Row-5-equivalent for consumers) and republishes. Per Adj-1: no re-tag of v1.0.14; the orphaned GitHub release artefact stays inert (no D1 versions row, no consumer pinned it).
 

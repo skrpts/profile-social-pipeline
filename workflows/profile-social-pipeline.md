@@ -94,6 +94,8 @@ Invoke the **core-message-drafting** skill via the **draft-core-message** prompt
 
 **Input:** Core message, iterated over each target platform
 
+The platform list (`{{input.platforms}}`) is provided as a JSON array — or one platform per line — so the loop can iterate it. The current platform is available to each iteration via `{{loop.item}}`.
+
 The **platform-adaptation** skill runs once per platform via the **adapt-for-platform** prompt. Each iteration produces platform-specific content:
 
 - **LinkedIn:** 1,200-1,500 characters, professional depth, thought leadership
@@ -131,7 +133,7 @@ Invoke **consistency-check** to verify the core message is consistent across all
 | Name | Required | Description | Example |
 |------|----------|-------------|---------|
 | `{{input.topic}}` | Yes | The topic or insight to share | `Most teams waste time in meetings because they confuse discussion with decision-making` |
-| `{{input.platforms}}` | Yes | Comma-separated target platforms | `LinkedIn, Twitter, Blog intro, Newsletter` |
+| `{{input.platforms}}` | Yes | Target platforms, as a JSON array or one per line | `["LinkedIn", "Twitter", "Blog intro", "Newsletter"]` |
 | `{{input.key_points}}` | No | Specific points to include | `1. Discussion vs decision meetings. 2. Amazon's 6-pager. 3. Cutting 60% of meetings.` |
 | `{{input.cta}}` | No | What readers should do | `Try the decision meeting format for one week` |
 
@@ -158,7 +160,7 @@ Invoke **consistency-check** to verify the core message is consistent across all
 
 ```
 Topic: "Most teams waste time in meetings because they confuse discussion with decision-making. A discussion meeting explores options. A decision meeting commits to one. Mixing them guarantees neither happens well."
-Platforms: "LinkedIn, Twitter, Blog intro, Newsletter"
+Platforms: ["LinkedIn", "Twitter", "Blog intro", "Newsletter"]
 Key Points: "1. The distinction between 'meeting to discuss' and 'meeting to decide' — most teams only have the first kind. 2. Amazon's approach: write the decision memo before the meeting, use meeting time to decide, not to present. 3. My experience: when I started labelling meetings as 'discussion' or 'decision', we cut 60% of them — most discussions didn't need a meeting at all."
 Call To Action: "Next week, label every meeting on your calendar as either 'discussion' or 'decision'. Cancel any discussion meeting that could be a document instead. Tell me what happens."
 ```

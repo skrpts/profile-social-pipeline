@@ -66,7 +66,7 @@ contents:
 
 security:
   status: "pass"
-  scanned_at: "2026-06-30T21:53:15.073Z"
+  scanned_at: "2026-06-30T23:08:53.008Z"
   scanner_version: "3.3.0"
   syntactic: "pass"
   structural: "pass"

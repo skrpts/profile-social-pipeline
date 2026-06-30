@@ -13,9 +13,11 @@
 # which keeps the full Download-CLI + Structural + JS-scan gate in CI.
 #
 # Requires org-level secrets:
-#   SIGNING_PRIVATE_KEY  — Ed25519 PEM for signing
-#   SCANNER_API_KEY      — API key for posting version registration to Hub
-#   SCANNER_REPO_TOKEN   — token for fetching verify-deps.mjs from private Hub repo
+#   SIGNING_PRIVATE_KEY       — Ed25519 PEM for signing
+#   SCANNER_API_KEY           — API key for posting version registration to Hub
+#   PIPELINE_APP_PRIVATE_KEY  — org-bot App private key; mints a short-lived read-only token for private skrptiq-hub
+# Requires org-level variables:
+#   PIPELINE_APP_ID           — org-bot App id (4071698)
 
 name: Release
 
@@ -65,17 +67,31 @@ jobs:
           chmod +x /usr/local/bin/skrptiq
           echo "Using CLI ${LATEST_TAG}"
 
+      # GH#737 — mint a short-lived org-bot App installation token, scoped
+      # read-only to the private skrptiq-hub repo, for the verify-deps fetch
+      # below. Replaces the expiry-prone personal-access-token path — nothing to rotate.
+      - name: Mint Hub-read token (org-bot App)
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.PIPELINE_APP_ID }}
+          private-key: ${{ secrets.PIPELINE_APP_PRIVATE_KEY }}
+          owner: skrptiq
+          repositories: skrptiq-hub
+
       - name: Verify declared dependencies (GH#612)
         # Per SKRPT-INTEGRATION v1.2 §2.0.1 + BUNDLE-INTEGRITY v1.0.5 §6.1:
         # If skrptiq.yaml declares dependencies, verify each against the Hub
         # catalogue. Reject on checksum mismatch (Build-for-reliability).
         # No-op for skrpts without dependencies (backwards-compatible).
+        # GH#737 — auth via the org-bot App token minted above (read-only,
+        # private skrptiq-hub); the ?ref=main content endpoint requires it.
         env:
           HUB_API_URL: https://hub.skrptiq.ai
-          SCANNER_REPO_TOKEN: ${{ secrets.SCANNER_REPO_TOKEN }}
+          HUB_READ_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           curl -sf \
-            -H "Authorization: Bearer ${SCANNER_REPO_TOKEN}" \
+            -H "Authorization: Bearer ${HUB_READ_TOKEN}" \
             -H "Accept: application/vnd.github.raw+json" \
             "https://api.github.com/repos/skrptiq/skrptiq-hub/contents/scripts/verify-deps.mjs?ref=main" \
             -o /tmp/verify-deps.mjs

@@ -3,7 +3,7 @@ id: "912dbfcd-f168-4640-96c2-e6e06b097c56"
 name: "profile-social-pipeline"
 display_name: "Profile-Aware Social Media Pipeline"
 description: "Generate personalised multi-platform social content using your voice and audience profiles"
-version: "1.0.16"
+version: "1.0.17"
 engine: ">=0.1.0"
 
 # --- Attribution ---
@@ -66,7 +66,7 @@ contents:
 
 security:
   status: "pass"
-  scanned_at: "2026-06-30T23:09:28.723Z"
+  scanned_at: "2026-07-03T11:06:21.701Z"
   scanner_version: "3.3.0"
   syntactic: "pass"
   structural: "pass"

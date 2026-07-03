@@ -1,5 +1,8 @@
 # Release Notes
 
+## v1.0.17
+GH#745 — declare per-step `output: {name, type}` on every execution step (core_message/text, platform_content/text, voice_verdict/decision, polished_posts/text, consistency_verdict/decision). Lights up the #744 rich flow-map. Content-only; no bindings or logic changes.
+
 ## v1.0.16
 GH#711 — fix the `for_each` platform loop. The `platform-loop` iterates `{{input.platforms}}`, but the input was documented and exampled as a comma-separated string (`LinkedIn, Twitter, …`), which resolves to prose the loop cannot iterate (the engine now fails this loud — GH#557). The input contract is now a JSON array (or one platform per line), mirroring the proven `batch-competitor-analysis` for_each pattern, so the expression resolves to an iterable array. Content-only: Inputs table, Stage 2 wording (notes `{{loop.item}}`), and Example Input updated; no contract or engine change.
 

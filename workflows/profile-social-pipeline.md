@@ -39,23 +39,27 @@ execution:
   - skill: "core-message-drafting"
     prompt: "draft-core-message"
     step_type: "generation"
+    output: { name: "core_message", type: "text" }
     context:
       voice_profile: "Neutral professional tone"
       audience_profile: "General professional audience"
   - skill: "platform-adaptation"
     prompt: "adapt-for-platform"
     step_type: "generation"
+    output: { name: "platform_content", type: "text" }
     context:
       voice_profile: "Neutral professional tone"
       audience_profile: "General professional audience"
   - skill: "voice-verification"
     prompt: "verify-voice"
     step_type: "validation"
+    output: { name: "voice_verdict", type: "decision" }
     context:
       voice_profile: "Neutral professional tone"
   - skill: "language-polish"
     prompt: "polish-language"
     step_type: "content"
+    output: { name: "polished_posts", type: "text" }
     context:
       voice_profile: "Neutral professional tone"
       grammar_strictness: "Professional"
@@ -63,6 +67,7 @@ execution:
     - skill: "consistency-check"
       prompt: "check-consistency"
       step_type: "review"
+      output: { name: "consistency_verdict", type: "decision" }
       context:
         voice_profile: "Neutral professional tone"
         consistency_strictness: "Standard"

@@ -81,10 +81,10 @@ What the reader should do or think differently. Include the CTA if provided.
 
 ### 6. Platform Adaptation Notes
 Brief notes on how this core message should adapt:
-- **LinkedIn:** [what to emphasise]
+- **LinkedIn:** [what to emphasize]
 - **Twitter/X:** [what to compress]
 - **Blog intro:** [what to tease]
-- **Newsletter:** [what to personalise]
+- **Newsletter:** [what to personalize]
 
 ## Rules
 

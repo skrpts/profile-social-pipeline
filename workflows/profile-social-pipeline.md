@@ -2,7 +2,7 @@
 type: workflow
 id: profile-social-pipeline
 title: Profile-Aware Social Media Pipeline
-description: "Generate personalised multi-platform social content using your voice and audience profiles"
+description: "Generate personalized multi-platform social content using your voice and audience profiles"
 tags: [Production, Customer-Facing, Content, Social, Loop]
 connections:
   - target: core-message-drafting
@@ -75,7 +75,7 @@ execution:
 
 ## Overview
 
-This workflow generates personalised social media content across multiple platforms from a single topic — all in your authentic voice. It uses your **Voice Profile** and **Audience Profile** to produce posts that sound like you wrote them, not like a generic social media tool.
+This workflow generates personalized social media content across multiple platforms from a single topic — all in your authentic voice. It uses your **Voice Profile** and **Audience Profile** to produce posts that sound like you wrote them, not like a generic social media tool.
 
 One topic in, platform-specific posts out. Same voice, different formats.
 
@@ -131,7 +131,7 @@ Invoke **consistency-check** to verify the core message is consistent across all
 - If no platforms are specified, defaults to LinkedIn + Twitter/X
 - If Voice Profile is not set, content is drafted in a clear, direct style
 - If voice verification flags issues, the report includes specific rewording suggestions
-- If a platform is not recognised, it's adapted using general social media best practices
+- If a platform is not recognized, it's adapted using general social media best practices
 
 ## Inputs
 
@@ -166,6 +166,6 @@ Invoke **consistency-check** to verify the core message is consistent across all
 ```
 Topic: "Most teams waste time in meetings because they confuse discussion with decision-making. A discussion meeting explores options. A decision meeting commits to one. Mixing them guarantees neither happens well."
 Platforms: ["LinkedIn", "Twitter", "Blog intro", "Newsletter"]
-Key Points: "1. The distinction between 'meeting to discuss' and 'meeting to decide' — most teams only have the first kind. 2. Amazon's approach: write the decision memo before the meeting, use meeting time to decide, not to present. 3. My experience: when I started labelling meetings as 'discussion' or 'decision', we cut 60% of them — most discussions didn't need a meeting at all."
+Key Points: "1. The distinction between 'meeting to discuss' and 'meeting to decide' — most teams only have the first kind. 2. Amazon's approach: write the decision memo before the meeting, use meeting time to decide, not to present. 3. My experience: when I started labeling meetings as 'discussion' or 'decision', we cut 60% of them — most discussions didn't need a meeting at all."
 Call To Action: "Next week, label every meeting on your calendar as either 'discussion' or 'decision'. Cancel any discussion meeting that could be a document instead. Tell me what happens."
 ```

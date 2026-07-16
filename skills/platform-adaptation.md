@@ -30,7 +30,7 @@ Takes the core message and adapts it for a specific platform, following platform
 ## What It Does
 
 1. **Platform formatting** — applies platform-specific structure (character limits, thread format, paragraph style)
-2. **Hook adaptation** — adapts the opening hook for the platform's scroll behaviour
+2. **Hook adaptation** — adapts the opening hook for the platform's scroll behavior
 3. **Depth calibration** — adjusts detail level (LinkedIn: deep, Twitter: compressed, Blog: teaser)
 4. **CTA matching** — adds platform-appropriate calls to action
 5. **Voice preservation** — maintains the creator's vocabulary, sentence patterns, and rhetorical devices throughout
